@@ -10,10 +10,9 @@ Best font's to ask the browser to use, ranked by:
 
 ```css
 {
-  font-family: 'source-code-pro', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace;
+  font-family: 'Operator Mono', 'Fira Code', 'Input Mono', 'Droid Sans Mono', 'Liberation Mono', 'Source Code Pro', 'Andale Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier', monospace;
 }
 ```
-
 
 ## see also
 
