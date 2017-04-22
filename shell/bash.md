@@ -36,11 +36,6 @@ fi
 
 ## builtins
 
-**`ln`**
-```shell
-ln -s <real_file> <future_link>
-```
-
 **`for`**
 ```shell
 for i in ( ls some-directory ); do
@@ -54,6 +49,11 @@ case "$variable" in
   abc)  echo "\$variable = abc" ;;
   xyz)  echo "\$variable = xyz" ;;
 esac
+```
+
+**`ln`**
+```shell
+ln -s <real_file> <future_link>
 ```
 
 **`select`**
@@ -72,6 +72,6 @@ tput el   # Clear the line
 
 ## see also
 
-[http://tldp.org/LDP/abs/html/index.html](http://tldp.org/LDP/abs/html/index.html)
-[https://stackoverflow.com/documentation/bash/topics](https://stackoverflow.com/documentation/bash/topics)
-[https://dev.to/thiht/shell-scripts-matter](https://dev.to/thiht/shell-scripts-matter)
+http://tldp.org/LDP/abs/html/index.html  
+https://stackoverflow.com/documentation/bash/topics  
+https://dev.to/thiht/shell-scripts-matter  
