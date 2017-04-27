@@ -72,10 +72,18 @@ tput el   # Clear the line
 
 ## tips
 
-Assign stdin (piped input) to a variable.
+Ternary expressions.
 
 ```shell
-piped=$(< /dev/stdin)
+<expression> && <on-true expression> || <on-false expression>
+# See below example for file/stdin to variable.
+```
+
+Assign either a file or stdin (piped input) to a variable.
+
+```shell
+[ $# -ge 1 -a -f "$1" ] && input="$1" || input="-"
+content=$(cat $input)
 ```
 
 ## see also
