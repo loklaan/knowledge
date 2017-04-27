@@ -79,11 +79,16 @@ Ternary expressions.
 # See below example for file/stdin to variable.
 ```
 
-Assign either a file or stdin (piped input) to a variable.
+Assign either a file or stdin (piped input) to a variable, with fallbacks.
 
 ```shell
+# Use a filepath from args when available, or use stdin
 [ $# -ge 1 -a -f "$1" ] && input="$1" || input="-"
 content=$(cat $input)
+
+# Use stdin if pipe is occupied, otherwise use a file
+(test -s /dev/stdin) && input="-" || input="./config.json"
+content=(cat $input)
 ```
 
 ## see also
