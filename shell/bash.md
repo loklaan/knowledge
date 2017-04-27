@@ -70,6 +70,14 @@ tput cuu1 # Move cursor up by one line
 tput el   # Clear the line
 ```
 
+## tips
+
+Assign stdin (piped input) to a variable.
+
+```shell
+piped=$(< /dev/stdin)
+```
+
 ## see also
 
 http://tldp.org/LDP/abs/html/index.html  
