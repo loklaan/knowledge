@@ -91,6 +91,14 @@ content=$(cat $input)
 content=(cat $input)
 ```
 
+## arithmetic
+
+Essentially, use `(())`.
+
+```shell
+echo $(( 5 - 1 ))
+```
+
 ## see also
 
 http://tldp.org/LDP/abs/html/index.html  
