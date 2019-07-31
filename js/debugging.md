@@ -54,27 +54,41 @@ _`support/ndb-init.js`:_
 
 /*
 |-------------------------------------------------------------------------------
-| NDB Init Script
+| NDB Harness Script
 |-------------------------------------------------------------------------------
 | https://github.com/GoogleChromeLabs/ndb
 |
-| Setup ndb to use a higher root directory as the debugger's "workspace", so
-| that all the project's files can be referenced in the file tree.
+| Sets up ndb to use the monorepo as the debugger's "workspace", so that files
+| in all packages can be referenced in the file tree.
+|
+| Note: Multiple of the same file might appear in the Tabs, but it doesn't
+|       affect the tools functionality.
 |
 */
 
 const path = require('path');
 const exec = require('child_process').execSync;
 
-function main () {
-	const cwd = process.cwd();
+const REST_ARGS_DENOM = '--';
 
-	const scriptWorkingDir = process.argv[ process.argv.findIndex(v => v === '--script-cwd') + 1 ];
-	if (!scriptWorkingDir) throw new Error('Require "--script-cwd" argument.');
-	const scriptFilePath = process.argv[ process.argv.findIndex(v => v === '--script') + 1 ];
-	if (!scriptFilePath) throw new Error('Require "--script" argument.');
+function getArgValueFromArgv(arg, argv) {
+  const position = argv.findIndex(v => v === arg);
+  return position > -1 ? argv[position + 1] : undefined;
+}
 
-	exec(path.resolve(cwd, scriptFilePath), { cwd: path.resolve(cwd, scriptWorkingDir) });
+function main() {
+  const workingDir = path.resolve(
+    process.cwd(),
+    getArgValueFromArgv('--cwd', process.argv) || process.cwd()
+  );
+
+  const restArgs = process.argv.slice(
+    process.argv.findIndex(v => v === REST_ARGS_DENOM) + 1
+  );
+  if (!process.argv.includes(REST_ARGS_DENOM) || restArgs.length < 1)
+    throw new Error(`Requires the command to be after a "${REST_ARGS_DENOM}".`);
+
+  exec(restArgs.join(' '), { cwd: workingDir, stdio: 'pipe' });
 }
 
 try {
