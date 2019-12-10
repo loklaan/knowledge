@@ -1,0 +1,27 @@
+<svg
+  id="Layer_1"
+  data-name="Layer 1"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 125 125"
+>
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #2f2f2f;
+      }
+      .cls-2 {
+        fill: #acceeb;
+      }
+    </style>
+  </defs>
+  <title>07-en-stem</title>
+  <polygon
+    class="cls-1"
+    points="75.16 93.01 75.16 85.32 67.44 85.32 67.44 93.01 58.23 94.93 57.63 98.22 84.08 98.22 84.8 94.81 75.16 93.01"
+  />
+  <polygon
+    class="cls-1"
+    points="75.16 23.17 74.14 22.21 58.47 23.47 58.11 26.58 67.44 29.04 67.44 35.66 75.16 35.66 75.16 23.17"
+  />
+  <rect class="cls-2" x="67.44" y="35.66" width="7.72" height="49.66" />
+</svg>
