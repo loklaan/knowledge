@@ -42,6 +42,11 @@ fi
 for i in ( ls some-directory ); do
   echo $i
 done
+
+SomeArray=("foo"  "bar"  "baz")
+for item in ${SomeArray[*]}; do
+  echo $item
+done
 ```
 
 **`case`**
