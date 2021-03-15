@@ -105,6 +105,14 @@ Essentially, use `(())`.
 echo $(( 5 - 1 ))
 ```
 
+## cli arguments
+
+```shell
+# Simple double dash arg
+arg_no_bump="false"
+expr "$*" : ".*--no-bump" > /dev/null && arg_no_bump="true"
+```
+
 ## see also
 
 http://tldp.org/LDP/abs/html/index.html  
