@@ -107,6 +107,8 @@ echo $(( 5 - 1 ))
 
 ## cli arguments
 
+More involved: https://medium.com/@Drew_Stokes/bash-argument-parsing-54f3b81a6a8f
+
 ```shell
 # Simple double dash arg
 arg_no_bump="false"
