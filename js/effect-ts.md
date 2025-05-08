@@ -4,6 +4,13 @@ Learnings / notes on using the [Effect](https://effect.website/) library & ecosy
 
 ## running effects
 
+Inheriting `FiberRefs` / `Context` between `Runtime`
+
+- **Explanation**: A fresh `Runtime` does not inherit FiberRefs or Context, which means any already run Config or Layers are not propogated down into the fresh Runtime.  
+  Sometimes this isn't intentional, but can happen when integrating 3rd-parties between effects.
+- **Fix**: Store the FiberRefs and Context from the parent fiber, and in the/a child Effect, just use `Effect.inheritFiberRefs(parentFiberRefs)` and `Effect.provide(parentContext)`.
+
+
 `RunMain` from `@effect/platform/Runtime`
 
 > `Effect<void, unknown, unknown>` is not assignable to parameter of type `Effect<void, unknown, never>`
@@ -20,6 +27,6 @@ Learnings / notes on using the [Effect](https://effect.website/) library & ecosy
       ```
 
 
-## Layers (Dependency Injection)
+## layers (dependency injection)
 
 - A `Layer<Effect<A, E, R>, O>` can be flatted with `Layer.unwrapEffect` to become a `Layer<A, O>`.
